@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,7 +33,7 @@
 			.pic{
 				height: 100%;
 				background-color: red;
-				background-image: url("jnj.jpg");
+				background-image: url("lrx.jpg");
 				background-size: cover;
 			}
 			.topcard p{
@@ -50,8 +52,8 @@
 			}
             #qr{
                 position: relative;
-                left: 4vw;
-                top: 4.5vh;
+                left: 9vw;
+                top: 7.5vh;
             }
 
 			#time{
@@ -130,8 +132,18 @@
 			var x = Math.floor(a+10);
 			
 		</script>
+	
 		<script>
-            //date
+            
+			var timeleft = 180;
+			var timer = setInterval(function(){
+				timeleft--;
+				document.getElementById("countdown").textContent = timeleft;
+				if (timeleft <=0)
+					clearInterval(timer)},1000);
+		</script>
+		<script>
+            
 			var today = new Date();
 			var y = today.getFullYear();
 			var m = today.getMonth() + 1;
@@ -151,14 +163,8 @@
             height : 256,
             colorDark: "#179702"
         });
-                var ajaxObj = new XMLHttpRequest();
-                ajaxObj.open('post', 'http://noleave.sxu.edu.cn/jcforms/plus/api/getRandom');
-                ajaxObj.send()
-                ajaxObj.onreadystatechange = function () {
-                    if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
-                        qrcode.makeCode(JSON.parse(ajaxObj.responseText)['msg']);
-                    }
-                }
+
+			qrcode.makeCode("SXQJ.7bbbd7816f5c455a9850d5e2775bcfe81640827337837");
         </script>
 	</body>
 </html>
